@@ -5,7 +5,12 @@ from textblob import TextBlob
 app = Flask(__name__)
 
 
-@app.route("sentiment/<sentence>", methods=["GET"])
+def sentiment_analysis1(sentence):
+    my_sentence = TextBlob(sentence)
+    return jsonify({sentence: str(my_sentence.sentiment.polarity)})
+
+
+@app.route("/sentiment/<sentence>", methods=["GET"])
 def sentiment_analysis(sentence):
     my_sentence = TextBlob(sentence)
     return jsonify({sentence: str(my_sentence.sentiment.polarity)})

@@ -10,3 +10,4 @@ pre-commit install
 git status
 git add -A
 pre-commit run
+pip install pytest
